@@ -5,27 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lumeluv</title>
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com">
-
-function checkoutWhatsApp() {
-    if(cart.length===0){alert("Keranjang masih kosong!");return;}
-    const nomorWA="6285382476588";
-    let subtotal=cart.reduce((a,i)=>a+i.price*i.quantity,0);
-    let ppn=Math.round(subtotal*ppnRate);
-    let service=subtotal>0?serviceCharge:0;
-    let total=subtotal+ppn+service;
-    let pesan="Halo, saya ingin memesan:\n\n";
-    cart.forEach(item=>{
-      pesan+=`• ${item.name}\nJumlah: ${item.quantity}\n`;
-      if(item.note) pesan+=`Catatan: ${item.note}\n`;
-      pesan+=`Subtotal: Rp ${(item.price*item.quantity).toLocaleString('id-ID')}\n\n`;
-    });
-    pesan+=`TOTAL: Rp ${total.toLocaleString('id-ID')}\n`;
-    pesan+=`Pengambilan: ${document.getElementById('tableSelector').value}`;
-    window.open("https://wa.me/"+nomorWA+"?text="+encodeURIComponent(pesan),"_blank");
-}
-
-</script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Inter & Playfair Display untuk sentuhan premium -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
     <!-- Font Awesome Icons -->
@@ -67,9 +47,8 @@ function checkoutWhatsApp() {
                         <i class="fa-solid fa-fire-burner text-lg animate-pulse"></i>
                     </div>
                     <div>
-                        <span class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-amber-700 to-orange-500 bg-clip-text text-transparent font-header">Luméluv </span>
-                        <p class="text-[10px] text-amber-600 font-bold -mt-1 tracking-wider uppercase">
-Soft Bites, Slow Life</p>
+                        <span class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-amber-700 to-orange-500 bg-clip-text text-transparent font-header">SajiRasa Risol</span>
+                        <p class="text-[10px] text-amber-600 font-bold -mt-1 tracking-wider uppercase">Garing di Luar • Lumer di Dalam</p>
                     </div>
                 </div>
 
@@ -107,9 +86,10 @@ Soft Bites, Slow Life</p>
     <section class="bg-gradient-to-r from-amber-700 to-orange-600 text-white py-8 px-4 text-center relative overflow-hidden">
         <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
         <div class="max-w-3xl mx-auto space-y-2 relative z-10">
-            <h1 class="text-3xl md:text-4xl font-extrabold font-header">Luméluv - Soft Bites, Slow Life</h1>
+            <h1 class="text-3xl md:text-4xl font-extrabold font-header">Risol Goreng Tepung Panir Tradisional</h1>
             <p class="text-xs md:text-sm text-amber-100 max-w-xl mx-auto">
-              Setiap gigitan menghadirkan kelembutan rasa dan isian premium yang lumer di mulut. Dibuat fresh setiap hari untuk menemani momen manismu.
+                Risol gulung asli berlapis remahan tepung panir garing keemasan yang digoreng dadakan mendidih, diisi dengan sensasi pasta cokelat, matcha latte, dan strawberry jam premium yang meleleh lumer saat digigit.
+            </p>
         </div>
     </section>
 
@@ -205,7 +185,7 @@ Soft Bites, Slow Life</p>
                 </div>
 
                 <!-- Checkout Button -->
-                <button onclick="checkoutWhatsApp()" id="btnCheckout" disabled class="w-full mt-2 py-3 bg-slate-300 text-slate-500 font-bold rounded-xl flex items-center justify-center gap-2 cursor-not-allowed transition-all">
+                <button onclick="openCheckoutModal()" id="btnCheckout" disabled class="w-full mt-2 py-3 bg-slate-300 text-slate-500 font-bold rounded-xl flex items-center justify-center gap-2 cursor-not-allowed transition-all">
                     <span>Lanjut Bayar Risol</span>
                     <i class="fa-solid fa-arrow-right"></i>
                 </button>
@@ -530,7 +510,7 @@ Soft Bites, Slow Life</p>
                 id: 1,
                 name: "Risol Chocolate ",
                 category: "risol-coklat",
-                price: 5000,
+                price: 15000,
                 desc: "Risol tradisional berlapis tepung panir garing keemasan dengan isian coklat meleleh yang melimpah.",
                 image: "WhatsApp Image 2026-06-27 at 11.27.03.jpeg"
             },
@@ -538,7 +518,7 @@ Soft Bites, Slow Life</p>
                 id: 2,
                 name: "Risol Strawberry",
                 category: "risol-strawberry",
-                price: 5000,
+                price: 16500,
                 desc: "Renyahnya kulit panir risol goreng dengan isian slay buah asli strawberry lumer manis.",
                 image: "WhatsApp Image 2026-06-27 at 11.27.03 (1).jpeg"
             },
@@ -546,7 +526,7 @@ Soft Bites, Slow Life</p>
                 id: 3,
                 name: "Risol Matcha",
                 category: "risol-matcha",
-                price: 5000,
+                price: 16000,
                 desc: "Risol goreng panir renyah dengan isian matcha lava cair yang lumer.",
                 image: "WhatsApp Image 2026-06-27 at 11.27.02.jpeg"
             },
@@ -973,6 +953,20 @@ Soft Bites, Slow Life</p>
                 transactionHistory.unshift(savedOrder);
                 document.getElementById('historyBadge').classList.remove('hidden');
 
+                // Otomatis buka WhatsApp dengan struk
+                let pesan = `*🧾 STRUK PEMESANAN LUMELUV*\n\nNo Nota : ${receiptId}\nTanggal : ${formattedDate}\n\nNama : ${custName}\n${custTable}\n\n========================\n`;
+                cart.forEach(item=>{
+                    pesan += `${item.name} x${item.quantity}\nRp ${(item.price*item.quantity).toLocaleString('id-ID')}\n`;
+                    if(item.note){ pesan += `Catatan: ${item.note}\n`; }
+                    pesan += `\n`;
+                });
+                pesan += `========================\nSubtotal : Rp ${subtotal.toLocaleString('id-ID')}\nPPN : Rp ${ppn.toLocaleString('id-ID')}\nLayanan : Rp ${serviceCharge.toLocaleString('id-ID')}\n\n*TOTAL : Rp ${finalTotal.toLocaleString('id-ID')}*\n\nPembayaran : ${paymentType}\n\nTerima kasih 🙏`;
+                const nomorWA="6285382476588";
+                setTimeout(()=>{
+                    window.open(`https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`,"_blank");
+                },2000);
+
+
             }, 1200); // Fake load delay
         }
 
@@ -1087,26 +1081,6 @@ Soft Bites, Slow Life</p>
 
             showToast("Struk digital risol disalin ke clipboard!");
         }
-    
-
-function checkoutWhatsApp() {
-    if(cart.length===0){alert("Keranjang masih kosong!");return;}
-    const nomorWA="6285382476588";
-    let subtotal=cart.reduce((a,i)=>a+i.price*i.quantity,0);
-    let ppn=Math.round(subtotal*ppnRate);
-    let service=subtotal>0?serviceCharge:0;
-    let total=subtotal+ppn+service;
-    let pesan="Halo, saya ingin memesan:\n\n";
-    cart.forEach(item=>{
-      pesan+=`• ${item.name}\nJumlah: ${item.quantity}\n`;
-      if(item.note) pesan+=`Catatan: ${item.note}\n`;
-      pesan+=`Subtotal: Rp ${(item.price*item.quantity).toLocaleString('id-ID')}\n\n`;
-    });
-    pesan+=`TOTAL: Rp ${total.toLocaleString('id-ID')}\n`;
-    pesan+=`Pengambilan: ${document.getElementById('tableSelector').value}`;
-    window.open("https://wa.me/"+nomorWA+"?text="+encodeURIComponent(pesan),"_blank");
-}
-
-</script>
+    </script>
 </body>
 </html>
