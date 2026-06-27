@@ -5,7 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lumeluv</title>
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com">
+
+function checkoutWhatsApp() {
+    if(cart.length===0){alert("Keranjang masih kosong!");return;}
+    const nomorWA="6285382476588";
+    let subtotal=cart.reduce((a,i)=>a+i.price*i.quantity,0);
+    let ppn=Math.round(subtotal*ppnRate);
+    let service=subtotal>0?serviceCharge:0;
+    let total=subtotal+ppn+service;
+    let pesan="Halo, saya ingin memesan:\n\n";
+    cart.forEach(item=>{
+      pesan+=`• ${item.name}\nJumlah: ${item.quantity}\n`;
+      if(item.note) pesan+=`Catatan: ${item.note}\n`;
+      pesan+=`Subtotal: Rp ${(item.price*item.quantity).toLocaleString('id-ID')}\n\n`;
+    });
+    pesan+=`TOTAL: Rp ${total.toLocaleString('id-ID')}\n`;
+    pesan+=`Pengambilan: ${document.getElementById('tableSelector').value}`;
+    window.open("https://wa.me/"+nomorWA+"?text="+encodeURIComponent(pesan),"_blank");
+}
+
+</script>
     <!-- Google Fonts: Inter & Playfair Display untuk sentuhan premium -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
     <!-- Font Awesome Icons -->
@@ -185,7 +205,7 @@ Soft Bites, Slow Life</p>
                 </div>
 
                 <!-- Checkout Button -->
-                <button onclick="openCheckoutModal()" id="btnCheckout" disabled class="w-full mt-2 py-3 bg-slate-300 text-slate-500 font-bold rounded-xl flex items-center justify-center gap-2 cursor-not-allowed transition-all">
+                <button onclick="checkoutWhatsApp()" id="btnCheckout" disabled class="w-full mt-2 py-3 bg-slate-300 text-slate-500 font-bold rounded-xl flex items-center justify-center gap-2 cursor-not-allowed transition-all">
                     <span>Lanjut Bayar Risol</span>
                     <i class="fa-solid fa-arrow-right"></i>
                 </button>
@@ -1067,6 +1087,26 @@ Soft Bites, Slow Life</p>
 
             showToast("Struk digital risol disalin ke clipboard!");
         }
-    </script>
+    
+
+function checkoutWhatsApp() {
+    if(cart.length===0){alert("Keranjang masih kosong!");return;}
+    const nomorWA="6285382476588";
+    let subtotal=cart.reduce((a,i)=>a+i.price*i.quantity,0);
+    let ppn=Math.round(subtotal*ppnRate);
+    let service=subtotal>0?serviceCharge:0;
+    let total=subtotal+ppn+service;
+    let pesan="Halo, saya ingin memesan:\n\n";
+    cart.forEach(item=>{
+      pesan+=`• ${item.name}\nJumlah: ${item.quantity}\n`;
+      if(item.note) pesan+=`Catatan: ${item.note}\n`;
+      pesan+=`Subtotal: Rp ${(item.price*item.quantity).toLocaleString('id-ID')}\n\n`;
+    });
+    pesan+=`TOTAL: Rp ${total.toLocaleString('id-ID')}\n`;
+    pesan+=`Pengambilan: ${document.getElementById('tableSelector').value}`;
+    window.open("https://wa.me/"+nomorWA+"?text="+encodeURIComponent(pesan),"_blank");
+}
+
+</script>
 </body>
 </html>
