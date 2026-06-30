@@ -218,7 +218,7 @@
                     <button onclick="setCategory('all')" id="btn-cat-all" class="category-btn active px-4 py-2 rounded-xl text-sm font-medium whitespace-nowrap transition-all bg-amber-500 text-white shadow-md shadow-amber-500/20">
                         ✨ Semua Menu
                     </button>
-                    <button onclick="setCategory('risol-coklat')" id="btn-cat-risol-coklat" class="category-btn px-4 py-2 rounded-xl text-sm font-medium whitespace-nowrap transition-all bg-white text-slate-600 border border-slate-200 hover:bg-amber-50">
+                    <button onclick="setCategory('risoles')" id="btn-cat-risoles" class="category-btn px-4 py-2 rounded-xl text-sm font-medium whitespace-nowrap transition-all bg-white text-slate-600 border border-slate-200 hover:bg-amber-50">
                         Risoles
                            </button>
                     <button onclick="setCategory('ube-creamy')" id="btn-cat-ube-creamy" class="category-btn px-4 py-2 rounded-xl text-sm font-medium whitespace-nowrap transition-all bg-white text-slate-600 border border-slate-200 hover:bg-amber-50">
@@ -814,7 +814,7 @@
             {
                 id: 1,
                 name: "Chocolate Cheese ",
-                category: "risol-coklat",
+                category: "risoles",
                 price: 5000,
                 desc: "Risol tradisional berlapis tepung panir garing keemasan dengan isian coklat meleleh yang melimpah.",
                 image: "WhatsApp Image 2026-06-27 at 11.27.03.jpeg"
@@ -822,7 +822,7 @@
             {
                 id: 2,
                 name: "Strawberry Cheese",
-                category: "risol-strawberry",
+                category: "risoles",
                 price: 5000,
                 desc: "Renyahnya kulit panir risol goreng dengan isian slay buah asli strawberry lumer manis.",
                 image: "WhatsApp Image 2026-06-27 at 11.27.03 (1).jpeg"
@@ -830,7 +830,7 @@
             {
                 id: 3,
                 name: "Matcha Cheese",
-                category: "risol-matcha",
+                category: "risoles",
                 price: 5000,
                 desc: "Risol goreng panir renyah dengan isian matcha lava cair yang lumer.",
                 image: "WhatsApp Image 2026-06-27 at 11.27.02.jpeg"
@@ -898,7 +898,7 @@
                              onerror="this.src='https://placehold.co/400x300/f59e0b/ffffff?text=${encodeURIComponent(item.name)}'" 
                              class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500">
                         <span class="absolute top-3 left-3 bg-amber-500 text-white text-[10px] uppercase tracking-wider font-extrabold px-2.5 py-1 rounded-full shadow-md">
-                            ${item.category.replace('risol-', 'risol ')}
+                            ${item.category}
                         </span>
                     </div>
                     <div class="p-4 flex-1 flex flex-col justify-between">
