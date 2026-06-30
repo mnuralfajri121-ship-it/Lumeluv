@@ -48,7 +48,7 @@
                     </div>
                     <div>
                         <span class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-amber-700 to-orange-500 bg-clip-text text-transparent font-header">Luméluv</span>
-                        <p class="text-[10px] text-amber-600 font-bold -mt-1 tracking-wider uppercase">Soft Bites, Slow Life</p>
+                        <p class="text-[10px] text-amber-600 font-bold -mt-1 tracking-wider uppercase"></p>
                     </div>
                 </div>
 
@@ -106,7 +106,7 @@
                     <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </span>
-                    <input type="text" id="searchInput" oninput="filterMenu()" placeholder="Cari risol goreng favoritmu..." class="w-full pl-10 pr-4 py-2 bg-amber-50/50 border border-amber-100 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all">
+                    <input type="text" id="searchInput" oninput="filterMenu()" placeholder="Cari menu favoritmu..." class="w-full pl-10 pr-4 py-2 bg-amber-50/50 border border-amber-100 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all">
                 </div>
 
                 <!-- Category Filters -->
@@ -115,15 +115,11 @@
                         ✨ Semua Menu
                     </button>
                     <button onclick="setCategory('risol-coklat')" id="btn-cat-risol-coklat" class="category-btn px-4 py-2 rounded-xl text-sm font-medium whitespace-nowrap transition-all bg-white text-slate-600 border border-slate-200 hover:bg-amber-50">
-                        🍫 Risol Coklat
+                        Risoles
                            </button>
-                    <button onclick="setCategory('risol-strawberry')" id="btn-cat-risol-strawberry" class="category-btn px-4 py-2 rounded-xl text-sm font-medium whitespace-nowrap transition-all bg-white text-slate-600 border border-slate-200 hover:bg-amber-50">
-                        🍓 Risol Strawberry
-                    </button>
-            
-                    </button>
-                    <button onclick="setCategory('risol-matcha')" id="btn-cat-risol-matcha" class="category-btn px-4 py-2 rounded-xl text-sm font-medium whitespace-nowrap transition-all bg-white text-slate-600 border border-slate-200 hover:bg-amber-50">
-                        🍵 Risol Matcha
+                    <button onclick="setCategory('ube-creamy')" id="btn-cat-ube-creamy" class="category-btn px-4 py-2 rounded-xl text-sm font-medium whitespace-nowrap transition-all bg-white text-slate-600 border border-slate-200 hover:bg-amber-50">
+                        Ube Creamy
+                           </button>
                  
                 </div>
             </div>
@@ -138,7 +134,7 @@
                 <div class="w-20 h-20 bg-amber-50 rounded-full flex items-center justify-center text-amber-500 mb-4">
                     <i class="fa-solid fa-circle-info text-3xl"></i>
                 </div>
-                <h3 class="text-lg font-bold text-slate-700">Risol Tidak Ditemukan</h3>
+                <h3 class="text-lg font-bold text-slate-700">Menu Tidak Ditemukan</h3>
                 <p class="text-sm text-slate-400 mt-1">Gunakan kata pencarian lain atau pilih kategori di atas.</p>
             </div>
         </div>
@@ -149,7 +145,7 @@
             <div class="p-4 border-b border-amber-100 flex items-center justify-between bg-gradient-to-r from-amber-500 to-orange-500 text-white">
                 <div class="flex items-center gap-2">
                     <i class="fa-solid fa-basket-shopping"></i>
-                    <span class="font-bold">Keranjang Risol</span>
+                    <span class="font-bold">Keranjang</span>
                 </div>
                 <!-- Mobile close button -->
                 <button onclick="toggleMobileCart()" class="md:hidden text-white hover:bg-white/10 p-1.5 rounded-lg transition-colors">
@@ -166,7 +162,7 @@
             <div class="p-4 border-t border-slate-100 bg-amber-50/25 space-y-3">
                 <div class="space-y-1.5 text-xs text-slate-500">
                     <div class="flex justify-between">
-                        <span>Subtotal Risol</span>
+                        <span>Subtotal</span>
                         <span id="subtotalVal" class="font-medium text-slate-700">Rp 0</span>
                     </div>
                     <div class="flex justify-between">
@@ -175,7 +171,7 @@
                     </div>
                     <div class="flex justify-between">
                         <span>Biaya Kemasan & Layanan</span>
-                        <span id="serviceVal" class="font-medium text-slate-700">Rp 3.000</span>
+                        <span id="serviceVal" class="font-medium text-slate-700">Rp 1.000</span>
                     </div>
                     <div class="border-t border-dashed border-slate-200 my-2"></div>
                     <div class="flex justify-between text-base font-bold text-slate-800">
@@ -186,7 +182,7 @@
 
                 <!-- Checkout Button -->
                 <button onclick="openCheckoutModal()" id="btnCheckout" disabled class="w-full mt-2 py-3 bg-slate-300 text-slate-500 font-bold rounded-xl flex items-center justify-center gap-2 cursor-not-allowed transition-all">
-                    <span>Lanjut Bayar Risol</span>
+                    <span>Lanjut Bayar</span>
                     <i class="fa-solid fa-arrow-right"></i>
                 </button>
             </div>
@@ -201,7 +197,7 @@
             <div class="p-5 border-b border-amber-100 flex items-center justify-between bg-slate-50">
                 <div class="flex items-center gap-2">
                     <span class="w-8 h-8 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center"><i class="fa-solid fa-cash-register"></i></span>
-                    <h3 class="font-bold text-lg text-slate-800 font-header">Pembayaran Risol</h3>
+                    <h3 class="font-bold text-lg text-slate-800 font-header">Pembayaran</h3>
                 </div>
                 <button onclick="closeCheckoutModal()" class="text-slate-400 hover:text-slate-600 p-1.5 rounded-lg hover:bg-slate-100 transition-colors">
                     <i class="fa-solid fa-xmark text-lg"></i>
@@ -277,37 +273,29 @@
                 </div>
 
                 <!-- QRIS Simulated Display -->
-                <div id="qrisContainer" class="hidden p-4 bg-slate-50 border border-slate-200 rounded-xl flex flex-col items-center text-center space-y-3">
-                    <div class="w-40 h-40 bg-white border border-slate-200 p-2 rounded-lg flex items-center justify-center">
-                        <svg class="w-full h-full" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="100" height="100" rx="4" fill="white"/>
-                            <rect x="8" y="8" width="24" height="24" rx="2" fill="#1e293b"/>
-                            <rect x="13" y="13" width="14" height="14" rx="1" fill="white"/>
-                            <rect x="16" y="16" width="8" height="8" rx="0.5" fill="#1e293b"/>
-                            <rect x="68" y="8" width="24" height="24" rx="2" fill="#1e293b"/>
-                            <rect x="73" y="13" width="14" height="14" rx="1" fill="white"/>
-                            <rect x="76" y="16" width="8" height="8" rx="0.5" fill="#1e293b"/>
-                            <rect x="8" y="68" width="24" height="24" rx="2" fill="#1e293b"/>
-                            <rect x="13" y="73" width="14" height="14" rx="1" fill="white"/>
-                            <rect x="16" y="76" width="8" height="8" rx="0.5" fill="#1e293b"/>
-                            <rect x="42" y="42" width="16" height="16" rx="2" fill="#f59e0b"/>
-                            <path d="M47 50 L53 50 M50 47 L50 53" stroke="white" stroke-width="2"/>
-                            <rect x="40" y="8" width="4" height="12" fill="#1e293b"/>
-                            <rect x="48" y="16" width="12" height="4" fill="#1e293b"/>
-                            <rect x="40" y="28" width="8" height="8" fill="#1e293b"/>
-                            <rect x="68" y="40" width="12" height="4" fill="#1e293b"/>
-                            <rect x="8" y="40" width="8" height="4" fill="#1e293b"/>
-                            <rect x="24" y="48" width="4" height="8" fill="#1e293b"/>
-                            <rect x="80" y="48" width="12" height="12" fill="#1e293b"/>
-                            <rect x="40" y="68" width="4" height="12" fill="#1e293b"/>
-                            <rect x="52" y="76" width="12" height="4" fill="#1e293b"/>
-                            <rect x="48" y="84" width="20" height="8" fill="#1e293b"/>
-                        </svg>
+               <!-- QRIS Simulated Display -->
+                <div id="qrisContainer"
+                     class="hidden p-4 bg-slate-50 border border-slate-200 rounded-xl flex flex-col items-center text-center space-y-3">
+
+                    <div class="w-64 h-64 bg-white border border-slate-200 p-2 rounded-lg flex items-center justify-center">
+
+                        <img
+                            src="D:\download/qris.jpeg"
+                            alt="QRIS Lumeluv"
+                            class="w-full h-full object-contain rounded">
+
                     </div>
+
                     <div>
-                        <span class="text-xs font-bold text-slate-800">Scan QRIS Luméluv</span>
-                        <p class="text-[10px] text-slate-400 mt-0.5">Otomatis Terverifikasi saat scan simulator diselesaikan.</p>
+                        <span class="text-xs font-bold text-slate-800">
+                            Scan QRIS Luméluv
+                        </span>
+
+                        <p class="text-[10px] text-slate-400 mt-0.5">
+                            Silakan scan QRIS menggunakan aplikasi pembayaran.
+                        </p>
                     </div>
+
                 </div>
 
                 <!-- Debit EDC Simulator UI -->
@@ -318,7 +306,7 @@
                             <span class="text-[10px] font-bold uppercase tracking-wider">Debit Reader Simulator</span>
                             <i class="fa-solid fa-wifi text-xs opacity-70"></i>
                         </div>
-                        <p class="text-xs text-blue-100 mb-1">Total Transaksi Risol</p>
+                        <p class="text-xs text-blue-100 mb-1">Total Transaksi </p>
                         <p id="debitTotalLabel" class="text-lg font-bold">Rp 0</p>
                     </div>
                     <p class="text-center text-[10px] text-slate-400">Hubungkan kartu ATM/Debit simulator Anda ke terminal pembayaran.</p>
@@ -352,7 +340,7 @@
                 <div class="w-12 h-12 border-4 border-amber-500 border-t-transparent rounded-full animate-spin"></div>
                 <div>
                     <h3 class="font-bold text-slate-700">Sedang Memproses Pesanan</h3>
-                    <p class="text-xs text-slate-400 mt-1">Menggoreng & menyiapkan kemasan risol manis lumer...</p>
+                    <p class="text-xs text-slate-400 mt-1">Menggoreng & menyiapkan kemasan ...</p>
                 </div>
             </div>
 
@@ -376,9 +364,9 @@
 
                         <div class="text-center space-y-1">
                             <h4 class="text-base font-bold tracking-wider">Luméluv</h4>
-                            <p class="text-[10px] text-slate-500">Spesialis Risol Goreng Lumer</p>
-                            <p class="text-[10px] text-slate-500">Ruko Kuliner Rasa, Bangka</p>
-                            <p class="text-[10px] text-slate-500">Telp: 0812-7889-1223</p>
+                            <p class="text-[10px] text-slate-500">Soft Bites, Slow Life</p>
+                            <p class="text-[10px] text-slate-500">Pangkalpinang, Bangka Belitung</p>
+                            <p class="text-[10px] text-slate-500">Telp: 0853 8247 6588</p>
                         </div>
 
                         <div class="border-t border-dashed border-slate-300 pt-3 space-y-1 text-[10px] text-slate-600">
@@ -401,7 +389,7 @@
                         </div>
 
                         <div class="border-t border-dashed border-slate-300 pt-3">
-                            <span class="block text-[10px] text-slate-500 mb-1.5 uppercase font-bold tracking-wider">Item Risol & Menu</span>
+                            <span class="block text-[10px] text-slate-500 mb-1.5 uppercase font-bold tracking-wider">Item Menu</span>
                             <div id="receiptItemsContainer" class="space-y-2">
                                 <!-- Receipt Items Inject Here -->
                             </div>
@@ -409,7 +397,7 @@
 
                         <div class="border-t border-dashed border-slate-300 pt-3 space-y-1.5">
                             <div class="flex justify-between">
-                                <span>Subtotal Risol</span>
+                                <span>Subtotal </span>
                                 <span id="receiptSubtotal">Rp 0</span>
                             </div>
                             <div class="flex justify-between">
@@ -443,8 +431,8 @@
                         </div>
 
                         <div class="text-center pt-4 border-t border-dashed border-slate-300">
-                            <p class="font-bold text-[10px] text-slate-600">--- Nikmati Selagi Hangat ---</p>
-                            <p class="text-[9px] text-slate-400 mt-1">Isian lumer sangat panas, harap berhati-hati saat gigitan pertama!</p>
+                            <p class="font-bold text-[10px] text-slate-600">--- Lumeluv ---</p>
+                            <p class="text-[9px] text-slate-400 mt-1">Soft Bites, Slow Life</p>
                         </div>
                     </div>
                 </div>
@@ -471,7 +459,7 @@
             <div class="p-5 border-b border-slate-100 flex items-center justify-between bg-slate-50">
                 <div class="flex items-center gap-2">
                     <span class="w-8 h-8 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center"><i class="fa-solid fa-clock-rotate-left"></i></span>
-                    <h3 class="font-bold text-lg text-slate-800 font-header">Riwayat Pesanan Risol</h3>
+                    <h3 class="font-bold text-lg text-slate-800 font-header">Riwayat Pesanan </h3>
                 </div>
                 <button onclick="closeHistoryModal()" class="text-slate-400 hover:text-slate-600 p-1.5 rounded-lg hover:bg-slate-100 transition-colors">
                     <i class="fa-solid fa-xmark text-lg"></i>
@@ -508,7 +496,7 @@
             // --- KATEGORI: RISOL COKLAT ---
             {
                 id: 1,
-                name: "Risol Chocolate ",
+                name: "Chocolate Cheese ",
                 category: "risol-coklat",
                 price: 5000,
                 desc: "Risol tradisional berlapis tepung panir garing keemasan dengan isian coklat meleleh yang melimpah.",
@@ -516,7 +504,7 @@
             },
             {
                 id: 2,
-                name: "Risol Strawberry",
+                name: "Strawberry Cheese",
                 category: "risol-strawberry",
                 price: 5000,
                 desc: "Renyahnya kulit panir risol goreng dengan isian slay buah asli strawberry lumer manis.",
@@ -524,11 +512,19 @@
             },
             {
                 id: 3,
-                name: "Risol Matcha",
+                name: "Matcha Cheese",
                 category: "risol-matcha",
                 price: 5000,
                 desc: "Risol goreng panir renyah dengan isian matcha lava cair yang lumer.",
                 image: "WhatsApp Image 2026-06-27 at 11.27.02.jpeg"
+            },
+            {
+                id: 4,
+                name: "Ube Creamy",
+                category: "ube-creamy",
+                price: 7000,
+                desc: "Lapisan ubi ungu premium, cream lembut, dan keju melimpah dalam satu dessert yang bikin ketagihan.",
+                image: "ubi.png"
             },
           
         ];
@@ -681,8 +677,8 @@
                         <div class="w-14 h-14 bg-amber-50 rounded-full flex items-center justify-center mb-3">
                             <i class="fa-solid fa-box-open text-xl text-amber-500"></i>
                         </div>
-                        <p class="text-xs font-semibold">Keranjang Risol Kosong</p>
-                        <p class="text-[10px] text-slate-400 mt-1">Pilih varian risol renyah di sebelah kiri.</p>
+                        <p class="text-xs font-semibold">Keranjang Kosong</p>
+                        <p class="text-[10px] text-slate-400 mt-1">Pilih varian menu di sebelah kiri.</p>
                     </div>
                 `;
                 document.getElementById('btnCheckout').disabled = true;
@@ -1047,7 +1043,7 @@
             const paymentType = document.getElementById('receiptPaymentType').innerText;
 
             let textContent = `=========================\n`;
-            textContent += `     SAJIRASA RISOL\n`;
+            textContent += `     Luméluv \n`;
             textContent += `=========================\n`;
             textContent += `No. Nota  : ${receiptId}\n`;
             textContent += `Tanggal   : ${dateStr}\n`;
@@ -1079,7 +1075,7 @@
             document.execCommand('copy');
             document.body.removeChild(tempTextArea);
 
-            showToast("Struk digital risol disalin ke clipboard!");
+            showToast("Struk digital disalin ke clipboard!");
         }
     </script>
 </body>
